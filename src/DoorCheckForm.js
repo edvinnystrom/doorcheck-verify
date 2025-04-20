@@ -38,7 +38,7 @@ export default function DoorCheckForm() {
   });
 
   setSubmitted(true);
-};
+}
 
 
 
