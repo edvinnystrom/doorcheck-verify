@@ -40,7 +40,7 @@ export default function DoorCheckForm() {
   setSubmitted(true);
 };
 
-  };
+
 
   if (submitted) {
     return (
