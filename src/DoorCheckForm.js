@@ -17,28 +17,25 @@ export default function DoorCheckForm() {
     }));
   };
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
   const timestamp = new Date().toISOString();
+  const formDataToSend = new FormData();
 
-  const payload = {
-    orderId: formData.orderId,
-    name: formData.name,
-    notes: formData.notes,
-    timestamp: timestamp,
-  };
+  formDataToSend.append("orderId", formData.orderId);
+  formDataToSend.append("name", formData.name);
+  formDataToSend.append("notes", formData.notes);
+  formDataToSend.append("timestamp", timestamp);
+  formDataToSend.append("photo", formData.photo);
 
   await fetch("https://hook.eu2.make.com/3ipx12l19cldoiffl27qlqurokjupnvj", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload)
+    body: formDataToSend
   });
 
   setSubmitted(true);
-}
+};
 
 
 
