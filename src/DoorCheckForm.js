@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 export default function DoorCheckForm() {
@@ -17,28 +18,25 @@ export default function DoorCheckForm() {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const timestamp = new Date().toISOString();
-  const formDataToSend = new FormData();
+    const timestamp = new Date().toISOString();
+    const formDataToSend = new FormData();
 
-  formDataToSend.append("orderId", formData.orderId);
-  formDataToSend.append("name", formData.name);
-  formDataToSend.append("notes", formData.notes);
-  formDataToSend.append("timestamp", timestamp);
-  formDataToSend.append("photo", formData.photo);
+    formDataToSend.append("orderId", formData.orderId);
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("notes", formData.notes);
+    formDataToSend.append("timestamp", timestamp);
+    formDataToSend.append("photo", formData.photo);
 
-  await fetch("https://hook.eu2.make.com/3ipx12l19cldoiffl27qlqurokjupnvj", {
-    method: "POST",
-    body: formDataToSend
-  });
+    await fetch("https://hook.eu2.make.com/3ipx12l19cldoiffl27qlqurokjupnvj", {
+      method: "POST",
+      body: formDataToSend
+    });
 
-  setSubmitted(true);
-};
-
-
-
+    setSubmitted(true);
+  };
 
   if (submitted) {
     return (
