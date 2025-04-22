@@ -21,7 +21,12 @@ export default function DoorCheckForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const timestamp = new Date().toISOString();
+    const now = new Date();
+const timestamp = now.toLocaleString("sv-SE", {
+  timeZone: "Europe/Stockholm",
+  hour12: false
+});
+
     const formDataToSend = new FormData();
 
     formDataToSend.append("orderId", formData.orderId);
